@@ -13,9 +13,9 @@ p {
 body {
     background-color: black;
 }
-.button {
+button {
     border: none;
-    color: white;
+    color: red;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
