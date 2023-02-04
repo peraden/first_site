@@ -25,7 +25,8 @@ button {
     cursor: pointer;
   }
   #banner {
-    max-width: 100%;
-    height:auto;
-    position: top;
+    width: 100%;
+    height:min-content;
+    background-position: center;
+
   }
