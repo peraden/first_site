@@ -8,15 +8,8 @@ const noviCenovnik = async () => {
     try {
         const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadSheetId}/values/Sheet1!A3:F1000?key=${apiKey}`);
         const resArray = await res.json();
-       
-        resArray.values.forEach(semering => {
 
-            if (semering.length !== 6) {
-                return;
-            }
-
-            spisakSemeringa.push(new Semering(...semering));
-        })
+        spisakSemeringa = resArray.values.filter(semeringData => semeringData.length === 6).map(semeringData => new Semering(...semeringData))
 
         console.log(spisakSemeringa);
     } catch(error) {

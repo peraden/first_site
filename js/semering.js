@@ -7,11 +7,11 @@ export class Semering {
         visina,
         cena
     ) {
-        this.sifra = sifra;
-        this.tip = tip;
-        this.osovina = osovina;
-        this.kuciste = kuciste;
-        this.visina = visina;
-        this.cena = cena;
+        this.sifra = sifra.trim();
+        this.tip = tip.trim();
+        this.osovina = osovina.trim();
+        this.kuciste = kuciste.trim();
+        this.visina = visina.trim();
+        this.cena = cena.trim();
     }
 }
