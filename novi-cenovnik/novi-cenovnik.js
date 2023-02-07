@@ -1,8 +1,10 @@
+import { Semering } from '../js/semering.js';
+
 const spreadSheetId = "1D-F3u2PCdUv29epyaqbxRbqK0MaNEB563liD5rZSjdw";
 const apiKey = "AIzaSyA5tI-XE5tDgiQBanwAo5brLvYAesnmhg0"
 let spisakSemeringa = [];
 
-noviCenovnik = async () => {
+const noviCenovnik = async () => {
     try {
         const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadSheetId}/values/Sheet1!A3:F1000?key=${apiKey}`);
         const resArray = await res.json();
@@ -13,16 +15,7 @@ noviCenovnik = async () => {
                 return;
             }
 
-            const semeringObj = {
-                sifra: semering[0],
-                tip: semering[1],
-                osovina: semering[2],
-                kuciste: semering[3],
-                visina: semering[4],
-                cena: semering[5]
-            };
-
-            spisakSemeringa.push(semeringObj);
+            spisakSemeringa.push(new Semering(...semering));
         })
 
         console.log(spisakSemeringa);
