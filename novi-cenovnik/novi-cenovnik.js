@@ -31,6 +31,27 @@ noviCenovnik = async () => {
     }
 }
 
-window.onload = () => {
-    noviCenovnik();
+function renderDataInTheTable(todos) {
+    const mytable = document.getElementById("html-data-table");
+    todos.forEach(spisakSemeringa => {
+        let newRow = document.createElement("tr");
+        Object.values(spisakSemeringa).forEach((value) => {
+            let cell = document.createElement("td");
+            cell.innerText = value;
+            newRow.appendChild(cell);
+        })
+        mytable.appendChild(newRow);
+    });
 }
+
+let newRow = document.createElement("tr");
+Object.values(spisakSemeringa).forEach((value) => {
+    let cell = document.createElement("td");
+    cell.innerText = value;
+    newRow.appendChild(cell);
+})
+
+window.onload = async () => {
+    await noviCenovnik();
+    renderDataInTheTable(spisakSemeringa);
+ }
